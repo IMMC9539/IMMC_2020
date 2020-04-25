@@ -13,8 +13,8 @@ import numpy as np
 def people_per_product_metric(pop_density, prod_density, max_ratio):
     return pop_density / (prod_density * max_ratio)
 
-def population_density(num_people, pop_perc, area_of_department):
-    return (num_people * pop_perc) / area_of_department
+def population_density(num_people, pop_perc, free_dept_area):
+    return (num_people * pop_perc) / free_dept_area
 
 def product_density(num_products, display_area):
     return num_products / display_area
