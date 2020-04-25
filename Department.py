@@ -205,8 +205,7 @@ class Department():
         -----------
         self: The Department object.
         '''
-        return utils.population_density( i.NUM_PEOPLE, self._pop_per,
-                                        self._dept_area - self._disp_area)
+        return utils.population_density(i.NUM_PEOPLE, self._pop_per, self._dept_area - self._disp_area)
 
     def get_prod_density(self):
         '''
