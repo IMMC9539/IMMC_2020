@@ -27,10 +27,9 @@ INDIGO =     (  0,  92, 255, 127.5)
 PURPLE =     (100,   0, 255, 127.5)
 
 # number of people - CHANGING VARIABLE
-NUM_PEOPLE = 500
+NUM_PEOPLE = 1000
 
 max_damages = 0.1 # [1]
-max_people_per_product = 0.33 # [2]
 
 #################
 # MODEL WEIGHTS #
@@ -71,9 +70,10 @@ dim_appliances =      (120, 120)
 dim_cam_aud_phones =  ( 80,  40)
 dim_computers_tablets =  (117,  117)
 dim_tvhome_theater_1 = (120,  60)
-dim_tvhome_theater_2 = ( 60, 260)
+dim_tvhome_theater_2 = ( 260, 60)
 dim_video_gaming =    (102, 102)
-dim_cashier = (245, 80)
+dim_large_cashier = (245, 80)
+dim_small_cashier = (60, 50)
 
 #########
 # AREAS #
@@ -153,10 +153,36 @@ tvhome_theater_2 = Department(pos_tvhometheater_2, dim_tvhome_theater_2, PURPLE,
 
 video_gaming = Department(pos_video_gaming, dim_video_gaming, GREEN, "Video Gaming", quantity_video_gaming, area_video_gaming, area_video_gaming_disp, per_video_gaming)
 
-cashier = Department(pos_cashier, dim_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+############
+# CASHIERS #
+############
+
+# Cashiers, modeled by Department objects.
+
+# large_cashier = Department(pos_cashier, dim_large_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier1 = Department((20, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier2 = Department((100, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier3 = Department((180, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier4 = Department((260, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier5 = Department((320, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier6 = Department((380, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier7 = Department((420, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashier8 = Department((460, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+
+cashiers = [cashier1, cashier2, cashier3, cashier4, cashier5, cashier6, cashier7, cashier8]
 
 # department objects stored in list for use in main file
 departments = [appliances, cam_aud_phones, computers_tablets, tvhome_theater_1, tvhome_theater_2, video_gaming]
+
+max_people_per_product = NUM_PEOPLE / sum(dept_to_quantity.values()) # [2]
 
 ##############
 # References #
