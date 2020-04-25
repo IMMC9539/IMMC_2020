@@ -24,7 +24,9 @@ def main():
 
     # add cashier to departments
     deps = i.departments.copy()
-    deps.append(i.cashier)
+
+    for r in i.cashiers:
+      deps.append(r)
     get_score()
 
     # while the program is running
