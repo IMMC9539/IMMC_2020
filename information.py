@@ -27,7 +27,7 @@ INDIGO =     (  0,  92, 255, 127.5)
 PURPLE =     (100,   0, 255, 127.5)
 
 # number of people - CHANGING VARIABLE
-NUM_PEOPLE = 1000
+NUM_PEOPLE = 1500
 
 max_damages = 0.1 # [1]
 
@@ -55,17 +55,48 @@ w_T = [w_1_T, w_2_T, w_3_T]
 #############
 # POSITIONS #
 #############
-pos_appliances = (90, 380)
-pos_cam_aud_phones = (300,140)
-pos_computers_tablets = (250, 280)
-pos_tvhometheater_1 = (300, 430)
-pos_tvhometheater_2 = (450, 240)
-pos_video_gaming = (90, 190)
-pos_cashier = (210, 50)
+
+# LAYOUT 1 POSITIONS (ORIGINAL)
+# pos_appliances = (90, 380)
+# pos_cam_aud_phones = (300,140)
+# pos_computers_tablets = (250, 280)
+# pos_tvhometheater_1 = (300, 430)
+# pos_tvhometheater_2 = (450, 240)
+# pos_video_gaming = (90, 190)
+# pos_large_cashier = (210, 50)
+
+# LAYOUT 2 POSITIONS (MODIFIED)
+
+pos_appliances = (230, 480-215)
+pos_cam_aud_phones = (95,	480-135)
+pos_computers_tablets = (95,	480-295)
+pos_tvhometheater_1 = (375,	480-115)
+pos_tvhometheater_2 = (250, 480-50)
+pos_video_gaming = (365,	480-290)
+pos_cashier_1 = (197, 480-119)
+pos_cashier_2 = (269, 480-119)
+pos_cashier_3 = (62, 480-195)
+pos_cashier_4 = (130, 480-195)
+pos_cashier_5 = (344, 480-201)
+pos_cashier_6 = (200, 480-310)
+pos_cashier_7 = (270, 480-310)
+pos_cashier_8 = (237, 480-369)
 
 ##############
 # DIMENSIONS #
 ##############
+
+# LAYOUT 1 DIMENSIONS (ORIGINAL)
+# dim_appliances =      (120, 120)
+# dim_cam_aud_phones =  ( 80,  40)
+# dim_computers_tablets =  (117,  117)
+# dim_tvhome_theater_1 = (120,  60)
+# dim_tvhome_theater_2 = ( 60, 260)
+# dim_video_gaming =    (102, 102)
+# dim_large_cashier = (245, 80)
+# dim_small_cashier = (60, 50)
+
+# LAYOUT 2 DIMENSIONS (MODIFIED)
 dim_appliances =      (120, 120)
 dim_cam_aud_phones =  ( 80,  40)
 dim_computers_tablets =  (117,  117)
@@ -159,23 +190,26 @@ video_gaming = Department(pos_video_gaming, dim_video_gaming, GREEN, "Video Gami
 
 # Cashiers, modeled by Department objects.
 
-# large_cashier = Department(pos_cashier, dim_large_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+# CASHIERS FOR LAYOUT 1 (ORIGINAL)
+# large_cashier = Department(pos_large_cashier, dim_large_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+# cashiers = [large_cashier]
 
-cashier1 = Department((20, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+# CASHIERS FOR LAYOUT 2 (MODIFIED)
+cashier1 = Department(pos_cashier_1, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier2 = Department((100, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier2 = Department(pos_cashier_2, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier3 = Department((180, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier3 = Department(pos_cashier_3, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier4 = Department((260, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier4 = Department(pos_cashier_4, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier5 = Department((320, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier5 = Department(pos_cashier_5, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier6 = Department((380, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier6 = Department(pos_cashier_6, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier7 = Department((420, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier7 = Department(pos_cashier_7, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
-cashier8 = Department((460, 50), dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
+cashier8 = Department(pos_cashier_8, dim_small_cashier, BLACK, "Cashier", 0, area_cashier, 0, 0)
 
 cashiers = [cashier1, cashier2, cashier3, cashier4, cashier5, cashier6, cashier7, cashier8]
 
