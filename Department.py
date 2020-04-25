@@ -230,8 +230,9 @@ class Department():
 
     def rough_handling(self):
         '''
-        Calculates the rough handling score as a function of visibility of the department and 
-        the people to product ratio in the department.
+        Calculates the rough handling score as a function of 
+        obstruction of the department and the people to product
+        ratio in the department.
 
         Parameters:
         -----------
@@ -239,13 +240,19 @@ class Department():
         '''
         ppp = utils.people_per_product_metric(self.get_pop_density(), self.get_prod_density(), i.max_people_per_product)
 
-        vis = utils.visibility(Point(i.pos_cashier[0], i.pos_cashier[1]), Point(self._pos[0], self._pos[1]), self._pop_per)
+        vises = []
+        for c in i.cashiers: 
+          vis = utils.obstruction(Point(c.get_pos()[0], c.get_pos()[1]), Point(self._pos[0], self._pos[1]), self._pop_per)
 
-        return i.w_1_RH * ppp + i.w_2_RH * vis
+          vises.append(vis)
+
+        vis_ = utils.model_obstructions(vises)
+
+        return i.w_1_RH * ppp + i.w_2_RH * vis_
 
     def open_packaging(self):
         '''
-        Calculates the open packaging score as a function of visibility of the department, 
+        Calculates the open packaging score as a function of obstruction of the department, 
         the popularity score, and the people to product ratio in the department.
 
         Parameters:
@@ -254,6 +261,11 @@ class Department():
         '''
         ppp = utils.people_per_product_metric(self.get_pop_density(), self.get_prod_density(), i.max_people_per_product)
 
-        vis = utils.visibility(Point(i.pos_cashier[0], i.pos_cashier[1]), Point(self._pos[0], self._pos[1]), self._pop_per)
+        vises = []
+        for c in i.cashiers: 
+          vis = utils.obstruction(Point(c.get_pos()[0], c.get_pos()[1]), Point(self._pos[0], self._pos[1]), self._pop_per)
 
-        return i.w_1_OP * ppp + i.w_2_OP * self._pop_per + i.w_3_OP * vis
+          vises.append(vis)
+        vis_ = utils.model_obstructions(vises)
+
+        return i.w_1_OP * ppp + i.w_2_OP * self._pop_per + i.w_3_OP * vis_
