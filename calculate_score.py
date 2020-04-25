@@ -51,3 +51,8 @@ def total_score(dep):
 
     # damage score
     return i.w_1_T * dropping + i.w_2_T * rough_handling + i.w_3_T * open_packages
+
+"""
+TOTAL PRODUCTS DAMAGED WITH LAYOUT 1: 19.44
+TOTAL PRODUCTS DAMAGED WITH LAYOUT 2: 17.13
+"""
